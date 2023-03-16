@@ -1,0 +1,10 @@
+	@GetMapping("/chec")
+	public ResponseEntity<String> myCheck() {
+		return ResponseEntity.ok("Hi JwtTokn");
+	}
+
+	@PostMapping(value = "/loadroles/{email}")
+	public ResponseEntity<UserDetails> login(@PathVariable String email) {
+		UserDetails userdetil = customUserDetailsService.loadUserByUsername(email);
+		return ResponseEntity.ok(userdetil);
+	}
